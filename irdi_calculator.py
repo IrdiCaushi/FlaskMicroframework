@@ -9,19 +9,19 @@
 
 
 # 4 Functions defined for arithmetic calculations
-def sumNr(first, second):
+def sum_nr(first, second):
     return first + second
 
 
-def subNr(first, second):
+def sub_nr(first, second):
     return first - second
 
 
-def divNr(first, second):
+def div_nr(first, second):
     return first/second
 
 
-def multiNr(first, second):
+def multi_nr(first, second):
     return first*second
 
 
@@ -32,9 +32,8 @@ category = int(input())
 
 # Checking the user input to display the appropriate sub-menu and validation
 if category == 1:
-    flagNr = True
 
-    while(flagNr):
+    while(True):
 
         # Sub-menu for the calculator
         print("Choose one option:\n1-Add\n2-Substract\n3-Divide\n4-Multiply\nAny other number to finish!")
@@ -45,60 +44,59 @@ if category == 1:
             break
 
         print("Enter the first number: ")
-        firstNumber = float(input())
+        first_number = float(input())
         print("\nEnter the second number: ")
-        secondNumber = float(input())
+        second_number = float(input())
 
         # Calling the appropriate function to do the calculations of two entered numbers
         if option == 1:
-            print(sumNr(firstNumber,secondNumber))
+            print(sum_nr(first_number,second_number))
         elif option == 2:
-            print(subNr(firstNumber,secondNumber))
+            print(sub_nr(first_number,second_number))
         elif option == 3:
-            print(divNr(firstNumber,secondNumber))
+            print(div_nr(first_number,second_number))
         elif option == 4:
-            print(multiNr(firstNumber,secondNumber))
+            print(multi_nr(first_number,second_number))
 
 # Second "category" for calculating the sum and counting the sequences entered by user in a list
 elif category == 2:
-    initialStr = input("Enter the sequence of numbers that you like:\n")
+    initial_str = input("Enter the sequence of numbers that you like:\n")
     
     # The numbers entered are splited by .split(",") method and are saved in a list
-    sequence = list(map(int, initialStr.split(",")))
-    totalSum = 0.0
-    totalNr = 0
+    sequence = list(map(int, initial_str.split(",")))
+    total_sum = 0.0
+    total_nr = 0
     for num in sequence:
-        totalSum += sequence[num-1]
-        totalNr += 1
+        total_sum += sequence[num-1]
+        total_nr += 1
 
-    print ("The sum of ",totalNr," numbers is ",totalSum)
+    print ("The sum of ",total_nr," numbers is ",total_sum)
 
 # Third "category" is the NoteBook
 elif category == 3:
     
-    noteFlag = True
 
     # Printing the NoteBook menu until the user exits
-    while(noteFlag):
+    while(True):
 
         print("Notebook Mode: ON\n1-Store entries\n2-Update entries\n3-Delete entries\nAny other number to Exit")
-        noteBookNr = int(input())
+        note_book_nr = int(input())
 
-        if noteBookNr == 1:
+        if note_book_nr == 1:
             print("Enter the values that you want to enter separated by ',' : ")
             book = input()
-            noteNew = list(map(str, book.split(",")))
-            note = note + noteNew
+            note_new = list(map(str, book.split(",")))
+            note = note + note_new
             print(note)
-        elif noteBookNr == 2:
+        elif note_book_nr == 2:
             print("Enter the index for update: ")
-            indexUpdate = int(input())
+            index_update = int(input())
             print("Enter value for update: ")
-            valueUpdate = input()
-            note[indexUpdate] = valueUpdate
-        elif noteBookNr == 3:
+            value_update = input()
+            note[index_update] = value_update
+        elif note_book_nr == 3:
             print("Enter the index for delete: ")
-            indexDelete = int(input())
-            del(note[indexDelete])
+            index_delete = int(input())
+            del(note[index_delete])
         else:
             break
